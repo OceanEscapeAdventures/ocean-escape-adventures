@@ -98,10 +98,11 @@ nav {
 
 /* ═══════════════ VALUE PROPS ═══════════════ */
 .props-container {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex; flex-wrap: wrap; justify-content: center;
   gap: 30px; padding: 0 5%; margin-top: -50px; position: relative; z-index: 20;
 }
 .prop-card {
+  flex: 1 1 240px; max-width: 360px;
   background: rgba(255,255,255,0.75); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); padding: 35px 30px; border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0,168,181,0.15), 0 2px 8px rgba(0,43,48,0.08), inset 0 1px 0 rgba(255,255,255,0.9); border: 1px solid rgba(0,168,181,0.25);
   text-align: center; transition: all 0.3s ease;
@@ -122,8 +123,9 @@ section { padding: 100px 5%; }
 .section-subtitle { font-size: 16px; color: #5A7174; margin-top: 15px; font-weight: 400; }
 
 /* ═══════════════ ACTIVITIES GRID ═══════════════ */
-.activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.activities-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
 .activity-card {
+  flex: 1 1 320px; max-width: 400px;
   position: relative; border-radius: 20px; overflow: hidden; height: 420px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: flex; align-items: flex-end;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -142,23 +144,24 @@ section { padding: 100px 5%; }
 
 /* ═══════════════ PACKAGES ═══════════════ */
 #packages { background: rgba(240,252,253,0.78); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
-.packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 360px)); gap: 40px; max-width: 1200px; margin: 0 auto; justify-content: center; }
+.packages-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1200px; margin: 0 auto; }
 .pkg-distinction { font-size:13px; font-style:italic; color:#5A7174; margin:-2px 0 18px 0; line-height:1.5; }
 .pkg-footnote { font-size:11.5px; color:#84999C; margin:-12px 0 20px 0; line-height:1.45; }
 .pkg-addon { font-size: 13px; color: #5A7174; background: rgba(255,107,74,0.08); border-left: 3px solid var(--coral-accent); padding: 10px 14px; border-radius: 8px; margin-bottom: 20px; line-height: 1.5; }
 .pkg-addon strong { color: var(--coral-accent); }
-.safety-bar { background: var(--deep-ocean); color: #fff; max-width: 1100px; margin: 0 auto 50px auto; border-radius: 16px; padding: 22px 30px; display:flex; align-items:center; gap:18px; box-shadow: 0 15px 40px rgba(0,43,48,0.25); }
+.safety-bar { background: var(--deep-ocean); color: #fff; max-width: 1100px; margin: 40px auto 50px auto; border-radius: 16px; padding: 22px 30px; display:flex; align-items:center; gap:18px; box-shadow: 0 15px 40px rgba(0,43,48,0.25); }
 .safety-bar svg { color: var(--turquoise); flex-shrink:0; }
 .safety-bar p { margin:0; font-size:14.5px; line-height:1.6; color: rgba(255,255,255,0.92); }
 .safety-bar strong { color:#fff; }
 @media(max-width:600px){ .safety-bar{ flex-direction:column; text-align:center; padding:24px 20px; margin-bottom:35px;} }
 .package-card {
+  flex: 0 1 340px; max-width: 360px;
   background: rgba(255,255,255,0.92); border-radius: 24px; overflow: hidden;
   box-shadow: 0 15px 45px rgba(0,43,48,0.10); border: 1px solid rgba(0, 168, 181, 0.08);
   display: flex; flex-direction: column; transition: all 0.3s; position: relative;
 }
 .package-card:hover { transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0, 168, 181, 0.18); }
-.package-card.featured { border: 2px solid var(--turquoise); }
+.package-card.featured { }
 .featured-badge {
   position: absolute; top: 20px; right: 20px; background: var(--turquoise); color: var(--pure-white);
   padding: 6px 16px; font-size: 11px; font-weight: 700; border-radius: 30px; letter-spacing: 1px; text-transform: uppercase; z-index: 10;
@@ -212,8 +215,8 @@ section { padding: 100px 5%; }
 .testimonials-section { background: var(--deep-ocean); color: var(--pure-white); position: relative; overflow: hidden; }
 .testimonials-section .section-title { color: var(--pure-white); }
 .testimonials-section .section-subtitle { color: var(--crystal-cyan); opacity: 0.8; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 10; }
-.testimonial-card { background: rgba(255, 255, 255, 0.06); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+.testimonials-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 10; }
+.testimonial-card { flex: 1 1 300px; max-width: 380px; background: rgba(255, 255, 255, 0.06); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
 .stars { color: var(--gold-premium); margin-bottom: 20px; display: flex; gap: 4px; }
 .testimonial-card p { font-size: 15px; color: var(--crystal-cyan); opacity: 0.9; margin-bottom: 25px; line-height: 1.7; font-style: italic; }
 .client-info { display: flex; align-items: center; gap: 15px; }
@@ -259,8 +262,8 @@ footer { background: #001B1E; color: rgba(255, 255, 255, 0.6); padding: 60px 5% 
   .about-images { max-width: 500px; margin: 0 auto; }
 }
 
-.places-photo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:1200px; margin:0 auto 40px; }
-.place-card-photo { position:relative; height:280px; border-radius:20px; overflow:hidden; box-shadow:0 8px 28px rgba(0,43,48,0.12); transition:transform 0.3s,box-shadow 0.3s; }
+.places-photo-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:0 auto 40px; }
+.place-card-photo { flex:1 1 260px; max-width:285px; position:relative; height:280px; border-radius:20px; overflow:hidden; box-shadow:0 8px 28px rgba(0,43,48,0.12); transition:transform 0.3s,box-shadow 0.3s; }
 .place-card-photo:hover { transform:translateY(-6px); box-shadow:0 18px 42px rgba(0,43,48,0.2); }
 .place-photo { position:absolute; inset:0; background-size:cover; background-position:center; transition:transform 0.5s; }
 .place-card-photo:hover .place-photo { transform:scale(1.06); }
@@ -273,8 +276,7 @@ footer { background: #001B1E; color: rgba(255, 255, 255, 0.6); padding: 60px 5% 
 .also-covering { max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
 .also-lbl { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#7A9296; }
 .also-pill { background:rgba(255,255,255,0.9); border:1px solid rgba(0,43,48,0.1); border-radius:50px; padding:8px 18px; font-size:13px; font-weight:600; color:var(--deep-ocean); box-shadow:0 2px 8px rgba(0,43,48,0.06); }
-@media (max-width:900px) { .places-photo-grid { grid-template-columns:repeat(2,1fr); } }
-@media (max-width:480px) { .places-photo-grid { grid-template-columns:1fr; } }
+@media (max-width:480px) { .place-card-photo { flex:1 1 100%; max-width:none; } }
 
 
 /* ── OCEAN BACKGROUND: Section overlays ── */
@@ -486,7 +488,7 @@ footer {
 <section id="activities">
   <div class="section-header">
     <span class="section-tag">Tailored Experiences</span>
-    <h2 class="section-title">Endless Ocean Adventures</h2>
+    <h2 class="section-title">Unforgettable Ocean Adventures</h2>
     <p class="section-subtitle">Mix and match your favorite ocean activities to design an unforgettable bespoke sea itinerary.</p>
   </div>
 
