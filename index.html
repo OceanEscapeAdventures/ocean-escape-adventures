@@ -5,6 +5,11 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ocean Escape Adventures — Premium Abu Dhabi Boat Tours</title>
+<link href="favicon.ico" rel="icon" sizes="48x48"/>
+<link href="assets/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="assets/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
 <meta content="Abu Dhabi's premier private boat tours. Island adventures, fishing, BBQ, banana boat &amp; more. Departing Marasy, Al Bateen. Max 7 guests." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&amp;family=Montserrat:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
@@ -579,6 +584,23 @@ section{border:0 !important;}
   text-decoration:none;font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
 .mobile-menu a:last-child{border-bottom:0;}
 @media (max-width: 992px){.nav-toggle{display:block;}}
+
+/* ═══════════════ PLACE CARD FLIP ═══════════════ */
+.place-card-photo{overflow:visible !important;box-shadow:none !important;perspective:1200px;cursor:pointer;}
+.place-flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.4,.1,.2,1);}
+.place-card-photo.flipped .place-flip{transform:rotateY(180deg);}
+.place-front,.place-back{position:absolute;inset:0;border-radius:20px;overflow:hidden;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  box-shadow:0 8px 28px rgba(0,43,48,0.12);}
+.place-back{transform:rotateY(180deg);background:linear-gradient(160deg,var(--deep-ocean) 0%,var(--sea-teal) 100%);
+  display:flex;flex-direction:column;justify-content:center;padding:24px;color:#fff;}
+.place-back-name{font-family:"Playfair Display",serif;font-size:20px;font-weight:700;margin-bottom:12px;}
+html[dir="rtl"] .place-back-name{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;}
+.place-back ul{list-style:none;margin:0;padding:0;}
+.place-back li{padding:6px 0;font-size:14px;font-weight:600;letter-spacing:0.4px;display:flex;align-items:center;gap:10px;}
+.place-back li::before{content:"✦";color:var(--gold-premium);font-size:11px;flex-shrink:0;}
+.place-back-hint{margin-top:14px;font-size:10.5px;opacity:0.6;letter-spacing:1.2px;text-transform:uppercase;}
+@media (prefers-reduced-motion: reduce){.place-flip{transition:none;}}
 </style></head>
 <body>
 <nav>
@@ -830,6 +852,8 @@ section{border:0 !important;}
 </div>
 <div class="places-photo-grid">
 <div class="place-card-photo">
+<div class="place-flip">
+<div class="place-front">
 <div class="place-photo" style="background-image:url('assets/place-01.webp')"></div>
 <div class="place-photo-overlay"></div>
 <div class="place-photo-content">
@@ -838,7 +862,21 @@ section{border:0 !important;}
 <div class="place-photo-meals"><span data-i18n="k110">Breakfast · Brunch · Dinner</span></div>
 </div>
 </div>
+<div class="place-back">
+<div class="place-back-name"><span data-i18n="k108">Al Qana</span></div>
+<ul>
+<li><span data-i18n="pl1a">Waterfront dining</span></li>
+<li><span data-i18n="pl1b">Marina promenade</span></li>
+<li><span data-i18n="pl1c">Aquarium visit</span></li>
+<li><span data-i18n="pl1d">City lights</span></li>
+</ul>
+<div class="place-back-hint"><span data-i18n="plflip">tap to flip back</span></div>
+</div>
+</div>
+</div>
 <div class="place-card-photo">
+<div class="place-flip">
+<div class="place-front">
 <div class="place-photo" style="background-image:url('assets/place-02.webp')"></div>
 <div class="place-photo-overlay"></div>
 <div class="place-photo-content">
@@ -847,7 +885,21 @@ section{border:0 !important;}
 <div class="place-photo-meals"><span data-i18n="k113">Breakfast · Brunch · Dinner</span></div>
 </div>
 </div>
+<div class="place-back">
+<div class="place-back-name"><span data-i18n="k111">Maqta</span></div>
+<ul>
+<li><span data-i18n="pl2a">Heritage views</span></li>
+<li><span data-i18n="pl2b">Mosque vistas</span></li>
+<li><span data-i18n="pl2c">Calm waters</span></li>
+<li><span data-i18n="pl2d">Photo spots</span></li>
+</ul>
+<div class="place-back-hint"><span data-i18n="plflip">tap to flip back</span></div>
+</div>
+</div>
+</div>
 <div class="place-card-photo">
+<div class="place-flip">
+<div class="place-front">
 <div class="place-photo" style="background-image:url('assets/place-03.webp')"></div>
 <div class="place-photo-overlay"></div>
 <div class="place-photo-content">
@@ -855,7 +907,21 @@ section{border:0 !important;}
 <div class="place-photo-sub"><span data-i18n="k115">Sandbank &amp; Watersports</span></div>
 </div>
 </div>
+<div class="place-back">
+<div class="place-back-name"><span data-i18n="k114">Sandbar Island</span></div>
+<ul>
+<li><span data-i18n="pl3a">White sandbank</span></li>
+<li><span data-i18n="pl3b">Watersports</span></li>
+<li><span data-i18n="pl3c">Shallow swim</span></li>
+<li><span data-i18n="pl3d">Skyline views</span></li>
+</ul>
+<div class="place-back-hint"><span data-i18n="plflip">tap to flip back</span></div>
+</div>
+</div>
+</div>
 <div class="place-card-photo">
+<div class="place-flip">
+<div class="place-front">
 <div class="place-photo" style="background-image:url('assets/place-04.webp')"></div>
 <div class="place-photo-overlay"></div>
 <div class="place-photo-content">
@@ -863,7 +929,21 @@ section{border:0 !important;}
 <div class="place-photo-sub"><span data-i18n="k117">Private Island Beach</span></div>
 </div>
 </div>
+<div class="place-back">
+<div class="place-back-name"><span data-i18n="k116">Al Maya Island</span></div>
+<ul>
+<li><span data-i18n="pl4a">Private beach</span></li>
+<li><span data-i18n="pl4b">Beach club</span></li>
+<li><span data-i18n="pl4c">Palm shores</span></li>
+<li><span data-i18n="pl4d">Swimming</span></li>
+</ul>
+<div class="place-back-hint"><span data-i18n="plflip">tap to flip back</span></div>
+</div>
+</div>
+</div>
 <div class="place-card-photo">
+<div class="place-flip">
+<div class="place-front">
 <div class="place-photo" style="background-image:url('assets/place-05.webp')"></div>
 <div class="place-photo-overlay"></div>
 <div class="place-photo-content">
@@ -871,12 +951,38 @@ section{border:0 !important;}
 <div class="place-photo-sub"><span data-i18n="k119">Island Retreat</span></div>
 </div>
 </div>
+<div class="place-back">
+<div class="place-back-name"><span data-i18n="k118">English Island</span></div>
+<ul>
+<li><span data-i18n="pl5a">Quiet retreat</span></li>
+<li><span data-i18n="pl5b">Clear waters</span></li>
+<li><span data-i18n="pl5c">Kayaking</span></li>
+<li><span data-i18n="pl5d">Picnics</span></li>
+</ul>
+<div class="place-back-hint"><span data-i18n="plflip">tap to flip back</span></div>
+</div>
+</div>
+</div>
 <div class="place-card-photo">
+<div class="place-flip">
+<div class="place-front">
 <div class="place-photo" style="background-image:url('assets/place-06.webp')"></div>
 <div class="place-photo-overlay"></div>
 <div class="place-photo-content">
 <div class="place-photo-name"><span data-i18n="k120">Al Halah Island</span></div>
 <div class="place-photo-sub"><span data-i18n="k121">Island Escape</span></div>
+</div>
+</div>
+<div class="place-back">
+<div class="place-back-name"><span data-i18n="k120">Al Halah Island</span></div>
+<ul>
+<li><span data-i18n="pl6a">Calm bays</span></li>
+<li><span data-i18n="pl6b">Snorkeling</span></li>
+<li><span data-i18n="pl6c">Beach BBQ</span></li>
+<li><span data-i18n="pl6d">Sunset spot</span></li>
+</ul>
+<div class="place-back-hint"><span data-i18n="plflip">tap to flip back</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -1414,7 +1520,14 @@ document.addEventListener('DOMContentLoaded',function(){
     faq_q4:"Can children come along?", faq_a4:"Absolutely — families are very welcome. Life jackets are provided for all ages, and our captain keeps the ride smooth and safe.",
     faq_q5:"What happens if the weather is bad?", faq_a5:"Your safety comes first. If sea conditions aren't suitable, we'll contact you to reschedule your trip to the next convenient date.",
     faq_q6:"How do I book and pay?", faq_a6:"Choose your package and tap Book via WhatsApp — we'll confirm your date, time and details in minutes and share payment options with you directly. Please note all payments are made in AED (UAE dirham); the USD figures shown are approximate references only — your bank or card issuer sets the final conversion rate and any fee.",
-    sun_label:"Today's sunset in Abu Dhabi", sun_label_tm:"Tomorrow's sunset in Abu Dhabi", sun_cta:"a perfect time for a sunset cruise"});
+    sun_label:"Today's sunset in Abu Dhabi", sun_label_tm:"Tomorrow's sunset in Abu Dhabi", sun_cta:"a perfect time for a sunset cruise",
+    plflip:"tap to flip back",
+    pl1a:"Waterfront dining", pl1b:"Marina promenade", pl1c:"Aquarium visit", pl1d:"City lights",
+    pl2a:"Heritage views", pl2b:"Mosque vistas", pl2c:"Calm waters", pl2d:"Photo spots",
+    pl3a:"White sandbank", pl3b:"Watersports", pl3c:"Shallow swim", pl3d:"Skyline views",
+    pl4a:"Private beach", pl4b:"Beach club", pl4c:"Palm shores", pl4d:"Swimming",
+    pl5a:"Quiet retreat", pl5b:"Clear waters", pl5c:"Kayaking", pl5d:"Picnics",
+    pl6a:"Calm bays", pl6b:"Snorkeling", pl6c:"Beach BBQ", pl6d:"Sunset spot"});
   Object.assign(window.I18N.ar,{
     nav_gallery:"المعرض", faq_tag:"معلومات مفيدة", faq_title:"الأسئلة الشائعة",
     faq_q1:"ماذا يشمل السعر؟", faq_a1:"كل ما هو مذكور في باقتك: قبطان معتمد، الوقود، سترات النجاة والمعدات. لا رسوم خفية — الإضافات الاختيارية مثل الشواء أو الرياضات المائية بأسعار واضحة.",
@@ -1423,7 +1536,14 @@ document.addEventListener('DOMContentLoaded',function(){
     faq_q4:"هل يمكن اصطحاب الأطفال؟", faq_a4:"بالتأكيد — العائلات موضع ترحيب. سترات النجاة متوفرة لجميع الأعمار، وقبطاننا يحرص على رحلة سلسة وآمنة.",
     faq_q5:"ماذا يحدث إذا كان الطقس سيئاً؟", faq_a5:"سلامتك أولاً. إذا لم تكن حالة البحر مناسبة، سنتواصل معك لإعادة جدولة رحلتك إلى أقرب موعد يناسبك.",
     faq_q6:"كيف أحجز وأدفع؟", faq_a6:"اختر باقتك واضغط \"احجز عبر واتساب\" — نؤكد التاريخ والوقت والتفاصيل خلال دقائق ونشاركك طرق الدفع مباشرة. يُرجى العلم أن جميع المدفوعات تتم بالدرهم الإماراتي؛ والأسعار المعروضة بالدولار الأمريكي هي للإشارة التقريبية فقط — والبنك أو مُصدر بطاقتك هو من يحدد سعر التحويل النهائي وأي رسوم.",
-    sun_label:"غروب اليوم في أبوظبي", sun_label_tm:"غروب الغد في أبوظبي", sun_cta:"وقت مثالي لرحلة الغروب"});
+    sun_label:"غروب اليوم في أبوظبي", sun_label_tm:"غروب الغد في أبوظبي", sun_cta:"وقت مثالي لرحلة الغروب",
+    plflip:"انقر للعودة",
+    pl1a:"مطاعم على الواجهة", pl1b:"ممشى المارينا", pl1c:"زيارة الأكواريوم", pl1d:"أضواء المدينة",
+    pl2a:"إطلالات تراثية", pl2b:"مشاهد الجامع", pl2c:"مياه هادئة", pl2d:"مواقع للتصوير",
+    pl3a:"رمال بيضاء", pl3b:"رياضات مائية", pl3c:"سباحة ضحلة", pl3d:"إطلالة الأبراج",
+    pl4a:"شاطئ خاص", pl4b:"نادٍ شاطئي", pl4c:"شواطئ النخيل", pl4d:"سباحة",
+    pl5a:"ملاذ هادئ", pl5b:"مياه صافية", pl5c:"كاياك", pl5d:"نزهات",
+    pl6a:"خلجان هادئة", pl6b:"غطس سطحي", pl6c:"شواء شاطئي", pl6d:"موقع الغروب"});
 })();
 </script>
 <script>
@@ -1499,6 +1619,23 @@ document.addEventListener('DOMContentLoaded',function(){
   btn.addEventListener('click',function(e){ e.stopPropagation(); set(!menu.classList.contains('open')); });
   menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ set(false); }); });
   document.addEventListener('click',function(e){ if(menu.classList.contains('open') && !menu.contains(e.target) && e.target!==btn) set(false); });
+})();
+</script>
+<script>
+/* Place cards: click to flip and reveal highlights */
+(function(){
+  var cards=document.querySelectorAll('.place-card-photo');
+  cards.forEach(function(c){
+    c.setAttribute('tabindex','0');
+    c.setAttribute('role','button');
+    function toggle(){
+      var was=c.classList.contains('flipped');
+      cards.forEach(function(o){ o.classList.remove('flipped'); });
+      if(!was) c.classList.add('flipped');
+    }
+    c.addEventListener('click',toggle);
+    c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+  });
 })();
 </script>
 </body>
