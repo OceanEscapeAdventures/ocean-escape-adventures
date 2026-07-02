@@ -1246,6 +1246,7 @@ function setLang(l){
   if(d['title']) document.title=d['title'];
   document.querySelectorAll('.lang-switch button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===l);});
   try{localStorage.setItem('oea_lang',l);}catch(e){}
+  if(window.onLangChange){try{window.onLangChange(l);}catch(e2){}}
 }
 window.setLang=setLang;
 document.addEventListener('DOMContentLoaded',function(){
@@ -1430,10 +1431,8 @@ document.addEventListener('DOMContentLoaded',function(){
     el.innerHTML='<span dir="ltr">'+t+'</span> '+suffix;
   }
   renderTime(document.documentElement.lang||'ar');
-  if(window.setLang){
-    var origSetLang=window.setLang;
-    window.setLang=function(l){origSetLang(l);renderTime(l);};
-  }
+  var prevHook=window.onLangChange;
+  window.onLangChange=function(l){ if(prevHook){prevHook(l);} renderTime(l); };
   pill.hidden=false;
 })();
 </script>
