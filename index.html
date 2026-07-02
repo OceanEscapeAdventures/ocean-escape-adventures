@@ -1414,7 +1414,7 @@ document.addEventListener('DOMContentLoaded',function(){
     faq_q4:"Can children come along?", faq_a4:"Absolutely — families are very welcome. Life jackets are provided for all ages, and our captain keeps the ride smooth and safe.",
     faq_q5:"What happens if the weather is bad?", faq_a5:"Your safety comes first. If sea conditions aren't suitable, we'll contact you to reschedule your trip to the next convenient date.",
     faq_q6:"How do I book and pay?", faq_a6:"Choose your package and tap Book via WhatsApp — we'll confirm your date, time and details in minutes and share payment options with you directly. Please note all payments are made in AED (UAE dirham); the USD figures shown are approximate references only — your bank or card issuer sets the final conversion rate and any fee.",
-    sun_label:"Today's sunset in Abu Dhabi", sun_cta:"a perfect time for a sunset cruise"});
+    sun_label:"Today's sunset in Abu Dhabi", sun_label_tm:"Tomorrow's sunset in Abu Dhabi", sun_cta:"a perfect time for a sunset cruise"});
   Object.assign(window.I18N.ar,{
     nav_gallery:"المعرض", faq_tag:"معلومات مفيدة", faq_title:"الأسئلة الشائعة",
     faq_q1:"ماذا يشمل السعر؟", faq_a1:"كل ما هو مذكور في باقتك: قبطان معتمد، الوقود، سترات النجاة والمعدات. لا رسوم خفية — الإضافات الاختيارية مثل الشواء أو الرياضات المائية بأسعار واضحة.",
@@ -1423,7 +1423,7 @@ document.addEventListener('DOMContentLoaded',function(){
     faq_q4:"هل يمكن اصطحاب الأطفال؟", faq_a4:"بالتأكيد — العائلات موضع ترحيب. سترات النجاة متوفرة لجميع الأعمار، وقبطاننا يحرص على رحلة سلسة وآمنة.",
     faq_q5:"ماذا يحدث إذا كان الطقس سيئاً؟", faq_a5:"سلامتك أولاً. إذا لم تكن حالة البحر مناسبة، سنتواصل معك لإعادة جدولة رحلتك إلى أقرب موعد يناسبك.",
     faq_q6:"كيف أحجز وأدفع؟", faq_a6:"اختر باقتك واضغط \"احجز عبر واتساب\" — نؤكد التاريخ والوقت والتفاصيل خلال دقائق ونشاركك طرق الدفع مباشرة. يُرجى العلم أن جميع المدفوعات تتم بالدرهم الإماراتي؛ والأسعار المعروضة بالدولار الأمريكي هي للإشارة التقريبية فقط — والبنك أو مُصدر بطاقتك هو من يحدد سعر التحويل النهائي وأي رسوم.",
-    sun_label:"غروب اليوم في أبوظبي", sun_cta:"وقت مثالي لرحلة الغروب"});
+    sun_label:"غروب اليوم في أبوظبي", sun_label_tm:"غروب الغد في أبوظبي", sun_cta:"وقت مثالي لرحلة الغروب"});
 })();
 </script>
 <script>
@@ -1446,8 +1446,23 @@ document.addEventListener('DOMContentLoaded',function(){
     var T=H+RA-(0.06571*t)-6.622;
     return (((T-lngHour)%24+24)%24+tz)%24;
   }
-  var h=sunsetHour(new Date());
+  // "Now" on Abu Dhabi's clock, regardless of where the visitor is browsing from
+  function abuDhabiNow(){ var d=new Date(); return new Date(d.getTime()+d.getTimezoneOffset()*60000+tz*3600000); }
+  var now=abuDhabiNow();
+  var h=sunsetHour(now), tomorrow=false;
+  if(h!==null && (now.getHours()+now.getMinutes()/60)>=h){
+    now=new Date(now.getTime()+864e5);   // past today's sunset → show tomorrow's
+    h=sunsetHour(now); tomorrow=true;
+  }
   if(h===null) return;
+  if(tomorrow){
+    var lbl=pill.querySelector('[data-i18n="sun_label"]');
+    if(lbl){
+      lbl.setAttribute('data-i18n','sun_label_tm');
+      var l0=document.documentElement.lang||'ar';
+      if(window.I18N&&window.I18N[l0]&&window.I18N[l0].sun_label_tm){ lbl.textContent=window.I18N[l0].sun_label_tm; }
+    }
+  }
   var hh=Math.floor(h), mm=Math.round((h-hh)*60);
   if(mm===60){mm=0;hh=(hh+1)%24;}
   var h12=((hh+11)%12)+1, t=h12+':'+(mm<10?'0':'')+mm;
