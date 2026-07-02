@@ -601,6 +601,7 @@ html[dir="rtl"] .place-back-name{font-family:'Tajawal','Segoe UI',Tahoma,sans-se
 .place-back li::before{content:"✦";color:var(--gold-premium);font-size:11px;flex-shrink:0;}
 .place-back-hint{margin-top:14px;font-size:10.5px;opacity:0.6;letter-spacing:1.2px;text-transform:uppercase;}
 @media (prefers-reduced-motion: reduce){.place-flip{transition:none;}}
+.flip-hint{text-align:center;font-size:13.5px;font-weight:600;color:var(--sea-teal);margin:16px auto 0;letter-spacing:0.3px;}
 </style></head>
 <body>
 <nav>
@@ -849,6 +850,7 @@ html[dir="rtl"] .place-back-name{font-family:'Tajawal','Segoe UI',Tahoma,sans-se
 <span class="section-tag"><span data-i18n="k104">Destinations &amp; Islands</span></span>
 <h2 class="section-title"><span data-i18n="k105">Places We</span> <span style="color:var(--coral-accent)"><span data-i18n="k106">Cover</span></span></h2>
 <p class="section-subtitle"><span data-i18n="k107">Cruise to pristine islands and sandbanks, or arrive by boat at Abu Dhabi's iconic waterfront dining venues.</span></p>
+<p class="flip-hint">👆 <span data-i18n="pl_hint">Tap any card to reveal that spot's highlights</span></p>
 </div>
 <div class="places-photo-grid">
 <div class="place-card-photo">
@@ -1521,7 +1523,7 @@ document.addEventListener('DOMContentLoaded',function(){
     faq_q5:"What happens if the weather is bad?", faq_a5:"Your safety comes first. If sea conditions aren't suitable, we'll contact you to reschedule your trip to the next convenient date.",
     faq_q6:"How do I book and pay?", faq_a6:"Choose your package and tap Book via WhatsApp — we'll confirm your date, time and details in minutes and share payment options with you directly. Please note all payments are made in AED (UAE dirham); the USD figures shown are approximate references only — your bank or card issuer sets the final conversion rate and any fee.",
     sun_label:"Today's sunset in Abu Dhabi", sun_label_tm:"Tomorrow's sunset in Abu Dhabi", sun_cta:"a perfect time for a sunset cruise",
-    plflip:"tap to flip back",
+    plflip:"tap to flip back", pl_hint:"Tap any card to reveal that spot's highlights",
     pl1a:"Waterfront dining", pl1b:"Marina promenade", pl1c:"Aquarium visit", pl1d:"City lights",
     pl2a:"Heritage views", pl2b:"Mosque vistas", pl2c:"Calm waters", pl2d:"Photo spots",
     pl3a:"White sandbank", pl3b:"Watersports", pl3c:"Shallow swim", pl3d:"Skyline views",
@@ -1537,7 +1539,7 @@ document.addEventListener('DOMContentLoaded',function(){
     faq_q5:"ماذا يحدث إذا كان الطقس سيئاً؟", faq_a5:"سلامتك أولاً. إذا لم تكن حالة البحر مناسبة، سنتواصل معك لإعادة جدولة رحلتك إلى أقرب موعد يناسبك.",
     faq_q6:"كيف أحجز وأدفع؟", faq_a6:"اختر باقتك واضغط \"احجز عبر واتساب\" — نؤكد التاريخ والوقت والتفاصيل خلال دقائق ونشاركك طرق الدفع مباشرة. يُرجى العلم أن جميع المدفوعات تتم بالدرهم الإماراتي؛ والأسعار المعروضة بالدولار الأمريكي هي للإشارة التقريبية فقط — والبنك أو مُصدر بطاقتك هو من يحدد سعر التحويل النهائي وأي رسوم.",
     sun_label:"غروب اليوم في أبوظبي", sun_label_tm:"غروب الغد في أبوظبي", sun_cta:"وقت مثالي لرحلة الغروب",
-    plflip:"انقر للعودة",
+    plflip:"انقر للعودة", pl_hint:"انقر على أي بطاقة لعرض أبرز مميزات المكان",
     pl1a:"مطاعم على الواجهة", pl1b:"ممشى المارينا", pl1c:"زيارة الأكواريوم", pl1d:"أضواء المدينة",
     pl2a:"إطلالات تراثية", pl2b:"مشاهد الجامع", pl2c:"مياه هادئة", pl2d:"مواقع للتصوير",
     pl3a:"رمال بيضاء", pl3b:"رياضات مائية", pl3c:"سباحة ضحلة", pl3d:"إطلالة الأبراج",
