@@ -1424,8 +1424,16 @@ document.addEventListener('DOMContentLoaded',function(){
   if(h===null) return;
   var hh=Math.floor(h), mm=Math.round((h-hh)*60);
   if(mm===60){mm=0;hh=(hh+1)%24;}
-  var h12=((hh+11)%12)+1;
-  el.textContent=h12+':'+(mm<10?'0':'')+mm+' '+(hh>=12?'PM':'AM');
+  var h12=((hh+11)%12)+1, t=h12+':'+(mm<10?'0':'')+mm;
+  function renderTime(l){
+    var suffix=(l==='ar')?(hh>=12?'مساءً':'صباحاً'):(hh>=12?'PM':'AM');
+    el.innerHTML='<span dir="ltr">'+t+'</span> '+suffix;
+  }
+  renderTime(document.documentElement.lang||'ar');
+  if(window.setLang){
+    var origSetLang=window.setLang;
+    window.setLang=function(l){origSetLang(l);renderTime(l);};
+  }
   pill.hidden=false;
 })();
 </script>
